@@ -7,6 +7,7 @@ import {
 } from '../../services/cartService'
 import { getProductImages } from '../../services/productImageService'
 import { API_BASE_URL } from '../../config/api'
+import './CartPage.css'
 
 const BACKEND_BASE_URL = API_BASE_URL.replace(/\/api$/, '')
 
@@ -292,7 +293,7 @@ const CartPage = () => {
                       <div className="cart-item__quantity">
                         <span>Quantity</span>
 
-                        <div className="quantity-control">
+                        <div className="cart-item__quantity-control">
                           <button
                             type="button"
                             onClick={() =>

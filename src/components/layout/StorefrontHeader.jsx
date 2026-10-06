@@ -1,6 +1,16 @@
 import { useCallback, useEffect, useState } from 'react'
-import { ClipboardList, LogOut, Search, ShoppingBag, UserRound } from 'lucide-react'
-import { Link, useNavigate } from 'react-router-dom'
+import {
+  ClipboardList,
+  LogOut,
+  Search,
+  ShoppingBag,
+  UserRound,
+} from 'lucide-react'
+import {
+  Link,
+  useLocation,
+  useNavigate,
+} from 'react-router-dom'
 import { getCategories } from '../../services/categoryService'
 import { getCart } from '../../services/cartService'
 import { useAuth } from '../../hooks/useAuth'
@@ -11,6 +21,7 @@ const StorefrontHeader = () => {
   const [cartItemCount, setCartItemCount] = useState(0)
   const { user, logout } = useAuth()
   const navigate = useNavigate()
+  const location = useLocation()
 
   const isCustomer = user?.role === 'CUSTOMER'
 
@@ -64,6 +75,16 @@ const StorefrontHeader = () => {
       )
     }
   }, [loadCartCount])
+
+  const searchParams = new URLSearchParams(location.search)
+  const activeCategoryId = searchParams.get('categoryId')
+
+  const isAllProductsActive =
+    location.pathname === '/products' && !activeCategoryId
+
+  const isCategoryActive = (categoryId) =>
+    location.pathname === '/products' &&
+    activeCategoryId === String(categoryId)
 
   return (
     <header className="storefront-header">
@@ -124,6 +145,7 @@ const StorefrontHeader = () => {
                   aria-hidden="true"
                 />
                 <span>Cart</span>
+
                 {cartItemCount > 0 && (
                   <span className="storefront-header__cart-count">
                     {cartItemCount}
@@ -172,12 +194,22 @@ const StorefrontHeader = () => {
 
       <div className="storefront-header__categories">
         <nav aria-label="Product categories">
-          <Link to="/products">All Products</Link>
+          <Link
+            to="/products"
+            className={isAllProductsActive ? 'is-active' : ''}
+          >
+            All Products
+          </Link>
 
           {categories.map((category) => (
             <Link
               key={category.id}
               to={`/products?categoryId=${category.id}`}
+              className={
+                isCategoryActive(category.id)
+                  ? 'is-active'
+                  : ''
+              }
             >
               {category.name}
             </Link>
@@ -189,6 +221,3 @@ const StorefrontHeader = () => {
 }
 
 export default StorefrontHeader
-
-
-

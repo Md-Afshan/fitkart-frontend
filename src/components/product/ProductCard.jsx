@@ -50,7 +50,7 @@ const ProductCard = ({ product, image }) => {
 
         <div className="product-card__footer">
           <span className="product-card__price">
-            ?{Number(product.price).toLocaleString('en-IN')}
+            &#8377;{Number(product.price).toLocaleString('en-IN')}
           </span>
 
           {!isOutOfStock && (

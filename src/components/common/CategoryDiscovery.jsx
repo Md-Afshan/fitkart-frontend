@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { ArrowUpRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { getCategories } from '../../services/categoryService'
 
@@ -115,9 +116,12 @@ const CategoryDiscovery = () => {
                 </div>
               </div>
 
-              <span className="category-card__arrow" aria-hidden="true">
-                ?
-              </span>
+              <ArrowUpRight
+                className="category-card__arrow"
+                size={20}
+                strokeWidth={2}
+                aria-hidden="true"
+              />
             </Link>
           ))}
         </div>
