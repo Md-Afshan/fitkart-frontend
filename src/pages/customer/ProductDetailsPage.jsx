@@ -1,10 +1,11 @@
-﻿import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { getProductById } from '../../services/productService'
 import { getProductImages } from '../../services/productImageService'
 import { addCartItem } from '../../services/cartService'
 import { API_BASE_URL } from '../../config/api'
 import { useAuth } from '../../context/AuthContext.js'
+import './ProductDetailsPage.css'
 
 const BACKEND_BASE_URL = API_BASE_URL.replace(/\/api$/, '')
 

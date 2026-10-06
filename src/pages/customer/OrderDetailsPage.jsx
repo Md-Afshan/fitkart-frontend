@@ -6,6 +6,7 @@ import {
 } from 'lucide-react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { getOrderById } from '../../services/orderService'
+import './OrderDetailsPage.css'
 
 const formatCurrency = (amount) => {
   return new Intl.NumberFormat('en-IN', {

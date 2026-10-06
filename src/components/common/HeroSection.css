@@ -19,6 +19,7 @@
   flex-direction: column;
   justify-content: flex-end;
   border: 1px solid var(--color-border);
+  border-right-color: transparent;
   border-radius: var(--radius-lg);
   overflow: hidden;
 }
@@ -113,6 +114,7 @@
   inset: var(--space-6) var(--page-padding);
   overflow: hidden;
   border: 1px solid var(--color-border);
+  border-right-color: transparent;
   border-radius: var(--radius-lg);
   background: var(--color-surface);
 }
@@ -125,14 +127,14 @@
   background:
     linear-gradient(
       90deg,
-      rgb(11 13 15 / 0.94) 0%,
-      rgb(11 13 15 / 0.78) 28%,
-      rgb(11 13 15 / 0.35) 58%,
-      rgb(11 13 15 / 0.08) 100%
+      rgb(11 13 15 / 0.78) 0%,
+      rgb(11 13 15 / 0.58) 28%,
+      rgb(11 13 15 / 0.22) 58%,
+      rgb(11 13 15 / 0.04) 100%
     ),
     linear-gradient(
       0deg,
-      rgb(11 13 15 / 0.72) 0%,
+      rgb(11 13 15 / 0.42) 0%,
       transparent 48%
     );
   pointer-events: none;
@@ -158,7 +160,7 @@
   min-height: 640px;
   display: block;
   object-fit: cover;
-  object-position: center;
+  object-position: right center;
   transition: transform 700ms ease;
 }
 

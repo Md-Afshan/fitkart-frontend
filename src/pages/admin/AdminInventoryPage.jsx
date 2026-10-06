@@ -253,11 +253,11 @@ const AdminInventoryPage = () => {
                     </td>
 
                     <td>
-                      {product.categoryName || '—'}
+                      {product.categoryName || 'ï¿½'}
                     </td>
 
                     <td>
-                      ?{Number(product.price).toLocaleString('en-IN', {
+                      â‚¹{Number(product.price).toLocaleString('en-IN', {
                         minimumFractionDigits: 2,
                         maximumFractionDigits: 2,
                       })}

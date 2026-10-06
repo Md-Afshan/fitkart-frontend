@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react'
+﻿import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { getCart } from '../../services/cartService'
 import { placeOrder } from '../../services/orderService'
+import './CheckoutPage.css'
 
 const CheckoutPage = () => {
 
@@ -92,7 +93,7 @@ const CheckoutPage = () => {
             </p>
 
             <div className="checkout-success__icon">
-              ?
+              {'\u2713'}
             </div>
 
             <h1>Order placed successfully</h1>
@@ -311,3 +312,4 @@ const CheckoutPage = () => {
 }
 
 export default CheckoutPage
+

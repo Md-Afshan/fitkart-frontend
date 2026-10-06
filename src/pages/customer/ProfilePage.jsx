@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { CircleAlert, Check, LockKeyhole, UserRound } from 'lucide-react'
+import './ProfilePage.css'
 import {
   getProfile,
   updateProfile,

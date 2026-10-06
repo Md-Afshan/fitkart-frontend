@@ -549,7 +549,7 @@ const AdminProductFormPage = () => {
               </label>
 
               <div className="admin-product-input-prefix">
-                <span>?</span>
+                <span>{'\u20B9'}</span>
 
                 <input
                   id="product-price"

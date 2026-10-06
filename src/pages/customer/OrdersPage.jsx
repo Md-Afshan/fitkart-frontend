@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { getMyOrders } from '../../services/orderService'
+import './OrdersPage.css'
 
 const OrdersPage = () => {
   const [orders, setOrders] = useState([])

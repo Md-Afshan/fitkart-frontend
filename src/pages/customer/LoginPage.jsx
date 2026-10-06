@@ -1,11 +1,12 @@
 import { useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../context/AuthContext'
+import './LoginPage.css'
 
 const LoginPage = () => {
   const navigate = useNavigate()
   const location = useLocation()
-  const { login, isAdmin } = useAuth()
+  const { login } = useAuth()
 
   const [form, setForm] = useState({
     email: '',
@@ -22,6 +23,10 @@ const LoginPage = () => {
       ...current,
       [name]: value,
     }))
+
+    if (error) {
+      setError('')
+    }
   }
 
   const handleSubmit = async (event) => {
@@ -36,7 +41,7 @@ const LoginPage = () => {
       setLoading(true)
       setError('')
 
-      await login({
+      const profile = await login({
         email: form.email.trim(),
         password: form.password,
       })
@@ -45,7 +50,7 @@ const LoginPage = () => {
 
       if (destination) {
         navigate(destination, { replace: true })
-      } else if (isAdmin) {
+      } else if (profile?.role === 'ADMIN') {
         navigate('/admin/dashboard', {
           replace: true,
         })
@@ -65,72 +70,81 @@ const LoginPage = () => {
   }
 
   return (
-    <div className="auth-page">
-      <div className="auth-layout">
-        <section className="auth-visual">
-          <div className="auth-visual__content">
+    <main className="login-page">
+      <div className="login-layout">
+        <section className="login-visual" aria-hidden="true">
+          <div className="login-visual__grid" />
+
+          <div className="login-visual__content">
             <Link
               to="/"
-              className="auth-visual__logo"
+              className="login-visual__logo"
+              tabIndex={-1}
             >
               FITKART
             </Link>
 
-            <div>
-              <p className="section-eyebrow">
+            <div className="login-visual__copy">
+              <span className="login-visual__eyebrow">
                 TRAIN WITH PURPOSE
-              </p>
+              </span>
 
               <h1>
                 Your training.
                 <br />
                 Your equipment.
                 <br />
-                Your way.
+                <span>Your way.</span>
               </h1>
 
               <p>
                 Sign in to manage your cart, orders,
                 and FITKART account.
               </p>
+
+              <div className="login-visual__line" />
             </div>
           </div>
         </section>
 
-        <section className="auth-form-panel">
-          <div className="auth-form-wrapper">
-            <div className="auth-form-header">
-              <p className="section-eyebrow">
+        <section className="login-form-panel">
+          <div className="login-form-wrapper">
+            <header className="login-form-header">
+              <span className="login-form-header__eyebrow">
                 WELCOME BACK
-              </p>
+              </span>
 
               <h2>Sign in to FITKART</h2>
 
               <p>
                 Enter your account details to continue.
               </p>
-            </div>
+            </header>
 
             {error && (
               <div
-                className="auth-error"
+                className="login-message login-message--error"
                 role="alert"
+                aria-live="assertive"
               >
                 {error}
               </div>
             )}
 
             <form
-              className="auth-form"
+              className="login-form"
               onSubmit={handleSubmit}
+              noValidate
+              aria-busy={loading}
             >
-              <div className="auth-field">
+              <div className="login-field">
                 <label htmlFor="login-email">
                   Email address
                 </label>
 
                 <input
                   id="login-email"
+                  className="login-field__input"
                   name="email"
                   type="email"
                   autoComplete="email"
@@ -142,13 +156,14 @@ const LoginPage = () => {
                 />
               </div>
 
-              <div className="auth-field">
+              <div className="login-field">
                 <label htmlFor="login-password">
                   Password
                 </label>
 
                 <input
                   id="login-password"
+                  className="login-field__input"
                   name="password"
                   type="password"
                   autoComplete="current-password"
@@ -162,25 +177,23 @@ const LoginPage = () => {
 
               <button
                 type="submit"
-                className="auth-submit"
+                className="login-submit"
                 disabled={loading}
               >
-                {loading
-                  ? 'Signing in...'
-                  : 'Sign in'}
+                {loading ? 'Signing in...' : 'Sign in'}
               </button>
             </form>
 
-            <p className="auth-switch">
-              Don't have an account?{' '}
+            <div className="login-switch">
+              <span>Don't have an account?</span>
               <Link to="/register">
                 Create one
               </Link>
-            </p>
+            </div>
           </div>
         </section>
       </div>
-    </div>
+    </main>
   )
 }
 

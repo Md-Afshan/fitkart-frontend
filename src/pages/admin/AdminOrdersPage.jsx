@@ -36,7 +36,7 @@ const getNextStatuses = (status) => {
 
 const formatDate = (date) => {
   if (!date) {
-    return '—'
+    return 'ï¿½'
   }
 
   return new Date(date).toLocaleDateString('en-IN', {
@@ -47,12 +47,11 @@ const formatDate = (date) => {
 }
 
 const formatPrice = (amount) => {
-  return `?${Number(amount || 0).toLocaleString('en-IN', {
+  return `\u20B9${Number(amount || 0).toLocaleString('en-IN', {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   })}`
 }
-
 const AdminOrdersPage = () => {
   const [orders, setOrders] = useState([])
   const [search, setSearch] = useState('')
@@ -393,7 +392,7 @@ const AdminOrdersPage = () => {
 
                                   <div>
                                     <span>
-                                      {formatPrice(item.unitPrice)} ×{' '}
+                                      {formatPrice(item.unitPrice)} ï¿½{' '}
                                       {item.quantity}
                                     </span>
                                     <strong>
@@ -472,4 +471,9 @@ const AdminOrdersPage = () => {
 }
 
 export default AdminOrdersPage
+
+
+
+
+
 
