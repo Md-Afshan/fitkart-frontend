@@ -113,6 +113,7 @@ const ProductDetailsPage = () => {
       })
 
       setCartMessage('Added to cart.')
+      window.dispatchEvent(new Event('fitkart-cart-updated'))
     } catch {
       setCartMessage(
         'Unable to add this product to your cart.'
@@ -308,6 +309,3 @@ const ProductDetailsPage = () => {
 }
 
 export default ProductDetailsPage
-
-
-

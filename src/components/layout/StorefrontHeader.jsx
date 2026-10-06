@@ -13,6 +13,7 @@ import {
 } from 'react-router-dom'
 import { getCategories } from '../../services/categoryService'
 import { getCart } from '../../services/cartService'
+import FitKartLogo from '../common/FitKartLogo.jsx'
 import { useAuth } from '../../hooks/useAuth'
 import './StorefrontHeader.css'
 
@@ -92,8 +93,9 @@ const StorefrontHeader = () => {
         <Link
           to="/"
           className="storefront-header__logo"
+          aria-label="FITKART home"
         >
-          FITKART
+          <FitKartLogo />
         </Link>
 
         <div className="storefront-header__search">

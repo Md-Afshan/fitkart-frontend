@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { ArrowLeft } from 'lucide-react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { getProducts } from '../../services/productService'
 import { getCategories } from '../../services/categoryService'
@@ -290,7 +291,7 @@ const ProductsPage = () => {
 
         <div className="products-page__back">
           <Link to="/">
-            ? Back to FitKart home
+            <ArrowLeft size={16} aria-hidden="true" /> Back to FitKart home
           </Link>
         </div>
       </div>

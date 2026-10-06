@@ -1,4 +1,5 @@
 import { Outlet } from 'react-router-dom'
+import Footer from '../common/Footer.jsx'
 import StorefrontHeader from './StorefrontHeader.jsx'
 
 const StorefrontLayout = () => {
@@ -9,6 +10,8 @@ const StorefrontLayout = () => {
       <main>
         <Outlet />
       </main>
+
+      <Footer />
     </div>
   )
 }

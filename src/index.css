@@ -4086,3 +4086,110 @@ select:focus-visible {
   }
 }
 
+/* ==========================
+   Featured Products - Responsive
+   ========================== */
+
+@media (max-width: 1024px) {
+  .product-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .featured-products {
+    padding: var(--space-16) 0;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    margin-bottom: var(--space-6);
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-4);
+  }
+
+  .product-card__content {
+    padding: var(--space-4);
+  }
+
+  .product-card__name {
+    font-size: var(--font-size-md);
+  }
+
+  .product-card__footer {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .product-card__action {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-container {
+    width: min(calc(100% - 2rem), var(--container-width));
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-card__footer {
+    width: 100%;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: var(--space-3);
+  }
+
+  .product-card__price {
+    min-width: 0;
+    flex: 1 1 auto;
+    font-size: var(--font-size-md);
+    white-space: nowrap;
+  }
+
+  .product-card__action {
+    width: auto;
+    flex: 0 0 auto;
+    min-width: 0;
+    padding: 0 var(--space-3);
+  }
+}
+/* ==========================
+   Product Card - Small Mobile
+   ========================== */
+
+@media (max-width: 480px) {
+  .section-container {
+    width: min(calc(100% - 2rem), var(--container-width));
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-card__footer {
+    width: 100%;
+    align-items: stretch;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .product-card__price {
+    min-width: 0;
+    font-size: var(--font-size-md);
+    white-space: nowrap;
+  }
+
+  .product-card__action {
+    width: 100%;
+    flex: 0 0 auto;
+  }
+}
