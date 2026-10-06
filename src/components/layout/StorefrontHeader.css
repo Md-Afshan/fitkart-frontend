@@ -1,0 +1,200 @@
+.storefront-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.storefront-header__main {
+  width: min(100%, var(--container-width));
+  min-height: 72px;
+  margin: 0 auto;
+  padding: 0 var(--page-padding);
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.storefront-header__logo {
+  flex-shrink: 0;
+  color: var(--color-text);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.08em;
+}
+
+.storefront-header__search {
+  flex: 1;
+  max-width: 640px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 0 var(--space-4);
+  color: var(--color-text-muted);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.storefront-header__search:focus-within {
+  border-color: var(--color-primary);
+}
+
+.storefront-header__search input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  color: var(--color-text);
+  background: transparent;
+}
+
+.storefront-header__search input::placeholder {
+  color: var(--color-text-subtle);
+}
+
+.storefront-header__actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+}
+
+.storefront-header__action {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  transition: color var(--transition-fast);
+}
+
+.storefront-header__action:hover {
+  color: var(--color-text);
+}
+
+.storefront-header__categories {
+  width: min(100%, var(--container-width));
+  margin: 0 auto;
+  padding: 0 var(--page-padding);
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.storefront-header__categories::-webkit-scrollbar {
+  display: none;
+}
+
+.storefront-header__categories a {
+  flex-shrink: 0;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  transition: color var(--transition-fast);
+}
+
+.storefront-header__categories a:hover {
+  color: var(--color-text);
+}
+
+@media (max-width: 768px) {
+  .storefront-header__main {
+    min-height: 64px;
+    gap: var(--space-3);
+  }
+
+  .storefront-header__logo {
+    font-size: var(--font-size-md);
+  }
+
+  .storefront-header__search {
+    order: 3;
+    flex-basis: 100%;
+    max-width: none;
+  }
+
+  .storefront-header__main {
+    flex-wrap: wrap;
+    padding-top: var(--space-3);
+    padding-bottom: var(--space-3);
+  }
+
+  .storefront-header__actions {
+    gap: var(--space-3);
+  }
+
+  .storefront-header__action span {
+    display: none;
+  }
+
+  .storefront-header__categories {
+    min-height: 44px;
+    gap: var(--space-5);
+  }
+}
+
+.storefront-header__cart-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: var(--color-primary);
+  color: var(--color-primary-text);
+  font-size: 0.68rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.storefront-header__signout {
+  min-height: 34px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0 11px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--color-text-muted);
+  font: inherit;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition:
+    color var(--transition-fast),
+    border-color var(--transition-fast),
+    background var(--transition-fast);
+}
+
+.storefront-header__signout:hover {
+  border-color: rgba(229, 107, 111, 0.45);
+  background: rgba(229, 107, 111, 0.07);
+  color: var(--color-error);
+}
+
+.storefront-header__signout:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+@media (max-width: 768px) {
+  .storefront-header__signout {
+    width: 34px;
+    min-height: 34px;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .storefront-header__signout span {
+    display: none;
+  }
+}
