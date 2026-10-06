@@ -178,7 +178,7 @@ const RegisterPage = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  placeholder="you@example.com"
+                  placeholder="your-email-id@gmail.com"
                   autoComplete="email"
                   required
                 />

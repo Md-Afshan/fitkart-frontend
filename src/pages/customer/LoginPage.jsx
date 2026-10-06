@@ -150,7 +150,7 @@ const LoginPage = () => {
                   autoComplete="email"
                   value={form.email}
                   onChange={handleChange}
-                  placeholder="you@example.com"
+                  placeholder="your-email-id@gmail.com"
                   disabled={loading}
                   required
                 />

@@ -194,6 +194,7 @@ const ProductDetailsPage = () => {
                         : 'product-details__thumbnail'
                     }
                     onClick={() => setSelectedImage(image.url)}
+                    aria-label={`View ${product.name} image ${image.id}`}
                   >
                     <img
                       src={image.url}

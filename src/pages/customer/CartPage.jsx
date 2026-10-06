@@ -333,6 +333,7 @@ const CartPage = () => {
                         type="button"
                         className="cart-item__remove"
                         onClick={() => handleRemove(item)}
+                        aria-label={`Remove ${item.productName} from cart`}
                         disabled={isUpdating}
                       >
                         {isUpdating

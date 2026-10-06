@@ -625,6 +625,7 @@ const AdminProductFormPage = () => {
                           type="button"
                           className="admin-product-image-card__delete"
                           onClick={() => handleImageDelete(image.id)}
+                          aria-label={`Delete image ${image.id}`}
                           disabled={deletingImageId === image.id}
                         >
                           {deletingImageId === image.id
