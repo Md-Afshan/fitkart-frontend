@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { API_BASE_URL } from '../../config/api'
 import { ArrowLeft, Check } from 'lucide-react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { getCategories } from '../../services/categoryService'
@@ -13,6 +14,8 @@ import {
   getProductImages,
 } from '../../services/productImageService'
 import './AdminProductFormPage.css'
+
+const BACKEND_BASE_URL = API_BASE_URL.replace(/\/api$/, '')
 
 const initialForm = {
   name: '',
@@ -605,7 +608,7 @@ const AdminProductFormPage = () => {
                       className="admin-product-image-card"
                     >
                       <img
-                        src={`http://localhost:8080${image.imageUrl || image.imagePath || image.url}`}
+                        src={`${BACKEND_BASE_URL}${image.imageUrl || image.imagePath || image.url}`}
                         alt={`${form.name} product`}
                         className="admin-product-image-card__image"
                       />
@@ -709,7 +712,3 @@ const AdminProductFormPage = () => {
 }
 
 export default AdminProductFormPage
-
-
-
-
