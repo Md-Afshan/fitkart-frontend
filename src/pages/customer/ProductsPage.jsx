@@ -291,7 +291,7 @@ const ProductsPage = () => {
 
         <div className="products-page__back">
           <Link to="/">
-            <ArrowLeft size={16} aria-hidden="true" /> Back to FitKart home
+            <ArrowLeft size={16} aria-hidden="true" /> Continue Shopping
           </Link>
         </div>
       </div>

@@ -150,7 +150,7 @@ const ProductDetailsPage = () => {
               to="/products"
               className="product-details-state__link"
             >
-            <span aria-hidden="true">&lt;</span> Back to products
+            <span aria-hidden="true">&lt;</span> Return to Products
             </Link>
           </div>
         </div>
@@ -163,7 +163,7 @@ const ProductDetailsPage = () => {
       <div className="section-container">
         <div className="product-details__back">
           <Link to="/products">
-            <span aria-hidden="true">&lt;</span> Back to products
+            <span aria-hidden="true">&lt;</span> Return to Products
           </Link>
         </div>
 

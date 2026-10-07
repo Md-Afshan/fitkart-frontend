@@ -214,7 +214,7 @@ const CartPage = () => {
               to="/products"
               className="cart-empty__link"
             >
-              Continue shopping
+              Continue Shopping
             </Link>
           </div>
         </div>
@@ -392,7 +392,7 @@ const CartPage = () => {
               to="/products"
               className="cart-summary__continue"
             >
-              Continue shopping
+              Continue Shopping
             </Link>
           </aside>
         </div>

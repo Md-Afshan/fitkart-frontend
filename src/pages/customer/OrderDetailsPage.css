@@ -9,6 +9,14 @@
 }
 
 .order-details-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 0;
+  color: #a1a1aa;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
   transition:
     color 160ms ease,
     transform 160ms ease;
@@ -17,6 +25,12 @@
 .order-details-back:hover {
   color: #ccff00;
   transform: translateX(-2px);
+}
+
+.order-details-back:focus-visible {
+  outline: 2px solid #ccff00;
+  outline-offset: 4px;
+  border-radius: 4px;
 }
 
 .order-details-header h1 {

@@ -16,7 +16,8 @@ const Footer = () => {
           </Link>
 
           <p>
-            Shop fitness equipment for your training needs.
+            FITKART makes it simple to discover reliable fitness equipment
+            for home workouts, strength training, and everyday active living.
           </p>
         </div>
 
@@ -37,12 +38,11 @@ const Footer = () => {
         </div>
 
         <div className="storefront-footer__column">
-          <h3>About Our Website</h3>
+          <h3>About FITKART</h3>
 
           <p>
-            FITKART is an online fitness equipment store
-            designed to make browsing and purchasing
-            training equipment simple.
+            Browse a focused range of fitness equipment through a clean,
+            straightforward shopping experience built for your training needs.
           </p>
         </div>
       </div>

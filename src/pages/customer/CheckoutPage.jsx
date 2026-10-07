@@ -1,4 +1,4 @@
-﻿import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { getCart } from '../../services/cartService'
 import { placeOrder } from '../../services/orderService'
@@ -75,7 +75,7 @@ const CheckoutPage = () => {
               to="/cart"
               className="checkout-state__link"
             >
-              Return to cart
+              Return to Cart
             </Link>
           </div>
         </div>
@@ -137,7 +137,7 @@ const CheckoutPage = () => {
                 to="/products"
                 className="checkout-success__secondary"
               >
-                Continue shopping
+                Continue Shopping
               </Link>
             </div>
           </div>
@@ -168,7 +168,7 @@ const CheckoutPage = () => {
               to="/products"
               className="checkout-state__link"
             >
-              Continue shopping
+              Continue Shopping
             </Link>
           </div>
         </div>
@@ -197,7 +197,7 @@ const CheckoutPage = () => {
             to="/cart"
             className="checkout-header__back"
           >
-            Back to cart
+            Return to Cart
           </Link>
         </div>
 

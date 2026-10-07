@@ -1,4 +1,4 @@
-﻿import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { API_BASE_URL } from '../../config/api'
 import { ArrowLeft, Check } from 'lucide-react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
@@ -392,7 +392,7 @@ const AdminProductFormPage = () => {
             className="admin-back-link"
           >
             <ArrowLeft size={16} aria-hidden="true" />
-            <span>Back to products</span>
+            <span>Return to Products</span>
           </Link>
 
           <p className="section-eyebrow">

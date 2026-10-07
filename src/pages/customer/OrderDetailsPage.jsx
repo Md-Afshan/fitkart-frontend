@@ -103,7 +103,7 @@ const OrderDetailsPage = () => {
             className="order-details-back"
           >
             <ArrowLeft size={18} aria-hidden="true" />
-            Back to orders
+            Return to My Orders
           </Link>
         </div>
       </section>
@@ -130,7 +130,7 @@ const OrderDetailsPage = () => {
           onClick={() => navigate('/orders')}
         >
           <ArrowLeft size={18} aria-hidden="true" />
-          Back to orders
+          Return to My Orders
         </button>
 
         <header className="order-details-header">
@@ -314,7 +314,7 @@ const OrderDetailsPage = () => {
               to="/products"
               className="order-details-shop-button"
             >
-              Continue shopping
+              Continue Shopping
             </Link>
           </aside>
         </div>

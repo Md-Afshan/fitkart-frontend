@@ -58,7 +58,7 @@ const OrdersPage = () => {
               to="/products"
               className="orders__primary-link"
             >
-              Continue shopping
+              Continue Shopping
             </Link>
           </div>
         </div>
@@ -114,7 +114,7 @@ const OrdersPage = () => {
             to="/products"
             className="orders__header-link"
           >
-            Continue shopping
+            Continue Shopping
           </Link>
         </div>
 

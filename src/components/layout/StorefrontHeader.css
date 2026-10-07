@@ -1,16 +1,16 @@
-.storefront-header {
+﻿.storefront-header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgb(11 13 15 / 0.96);
+  background: rgb(11 13 15 / 0.97);
   border-bottom: 1px solid var(--color-border);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
 .storefront-header__main {
   width: min(100%, var(--container-width));
-  min-height: 80px;
+  min-height: 76px;
   margin: 0 auto;
   padding: 0 var(--page-padding);
   display: flex;
@@ -58,7 +58,7 @@
 .storefront-header__search {
   flex: 1;
   max-width: 620px;
-  height: 46px;
+  height: 48px;
   display: flex;
   align-items: center;
   gap: var(--space-3);
@@ -67,6 +67,7 @@
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.02);
   transition:
     border-color var(--transition-fast),
     background var(--transition-fast),
@@ -80,7 +81,9 @@
 .storefront-header__search:focus-within {
   border-color: var(--color-primary);
   background: var(--color-raised);
-  box-shadow: 0 0 0 3px rgb(199 243 107 / 0.08);
+  box-shadow:
+    0 0 0 3px rgb(199 243 107 / 0.08),
+    inset 0 1px 0 rgb(255 255 255 / 0.02);
 }
 
 .storefront-header__search input {
@@ -110,7 +113,7 @@
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
-  padding: 0 10px;
+  padding: 0 11px;
   color: var(--color-text-muted);
   border: 1px solid transparent;
   border-radius: var(--radius-sm);
@@ -120,13 +123,15 @@
   transition:
     color var(--transition-fast),
     background var(--transition-fast),
-    border-color var(--transition-fast);
+    border-color var(--transition-fast),
+    transform var(--transition-fast);
 }
 
 .storefront-header__action:hover {
   color: var(--color-text);
   background: var(--color-surface);
   border-color: var(--color-border);
+  transform: translateY(-1px);
 }
 
 .storefront-header__action:hover svg {
@@ -155,7 +160,7 @@
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  padding: 0 11px;
+  padding: 0 12px;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
   background: var(--color-surface);
@@ -167,13 +172,15 @@
   transition:
     color var(--transition-fast),
     border-color var(--transition-fast),
-    background var(--transition-fast);
+    background var(--transition-fast),
+    transform var(--transition-fast);
 }
 
 .storefront-header__signout:hover {
   border-color: rgba(229, 107, 111, 0.45);
   background: rgba(229, 107, 111, 0.07);
   color: var(--color-error);
+  transform: translateY(-1px);
 }
 
 .storefront-header__signout:focus-visible,
@@ -191,7 +198,7 @@
   align-items: center;
   overflow-x: auto;
   scrollbar-width: none;
-  background: rgb(18 21 24 / 0.82);
+  background: rgb(18 21 24 / 0.84);
   border-top: 1px solid rgb(42 48 53 / 0.7);
 }
 
@@ -204,7 +211,7 @@
   margin: 0 auto;
   display: flex;
   align-items: center;
-  gap: var(--space-6);
+  gap: var(--space-7);
 }
 
 .storefront-header__categories a {
@@ -216,9 +223,11 @@
   color: var(--color-text-muted);
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-semibold);
-  letter-spacing: 0.02em;
+  letter-spacing: 0.025em;
   text-decoration: none;
-  transition: color var(--transition-fast);
+  transition:
+    color var(--transition-fast),
+    transform var(--transition-fast);
 }
 
 .storefront-header__categories a::after {
@@ -237,6 +246,7 @@
 
 .storefront-header__categories a:hover {
   color: var(--color-text);
+  transform: translateY(-1px);
 }
 
 .storefront-header__categories a:hover::after {
@@ -245,6 +255,7 @@
 
 .storefront-header__categories a.is-active {
   color: var(--color-primary);
+  font-weight: var(--font-weight-bold);
 }
 
 .storefront-header__categories a.is-active::after {
@@ -347,6 +358,7 @@
     height: 40px;
   }
 }
+
 /* ==========================
    Storefront Header - Mobile Navigation
    ========================== */

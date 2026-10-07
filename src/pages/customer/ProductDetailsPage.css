@@ -11,7 +11,14 @@
 }
 
 .product-details__back a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 0;
   color: #a1a1aa;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
   transition:
     color 180ms ease,
     transform 180ms ease;
@@ -19,6 +26,13 @@
 
 .product-details__back a:hover {
   color: #ccff00;
+  transform: translateX(-2px);
+}
+
+.product-details__back a:focus-visible {
+  outline: 2px solid #ccff00;
+  outline-offset: 4px;
+  border-radius: 4px;
 }
 
 .product-details__main-image {

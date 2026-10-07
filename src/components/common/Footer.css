@@ -12,7 +12,7 @@
   margin: 0 auto;
   padding: var(--space-16) 0;
   display: grid;
-  grid-template-columns: 1.5fr repeat(2, 1fr) 1.5fr;
+  grid-template-columns: 1.6fr repeat(2, 1fr) 1.45fr;
   gap: var(--space-10);
 }
 
@@ -40,11 +40,11 @@
 
 .storefront-footer__brand p,
 .storefront-footer__column p {
-  max-width: 340px;
+  max-width: 360px;
   margin: 0;
   color: var(--color-text-muted);
   font-size: var(--font-size-sm);
-  line-height: var(--line-height-relaxed);
+  line-height: 1.75;
 }
 
 .storefront-footer__column {
@@ -58,16 +58,17 @@
 .storefront-footer__column h3 {
   margin: 0 0 var(--space-2);
   color: var(--color-text);
-  font-size: var(--font-size-sm);
+  font-size: 0.78rem;
   font-weight: var(--font-weight-bold);
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
 .storefront-footer__column a {
   color: var(--color-text-muted);
   font-size: var(--font-size-sm);
-  line-height: 1.4;
+  line-height: 1.5;
+  text-decoration: none;
   transition:
     color var(--transition-fast),
     transform var(--transition-fast);
@@ -102,6 +103,7 @@
   gap: var(--space-5);
   color: var(--color-text-subtle);
   font-size: var(--font-size-xs);
+  line-height: 1.5;
 }
 
 @media (max-width: 1024px) {
