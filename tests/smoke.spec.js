@@ -15,7 +15,7 @@ test.describe('FITKART production smoke tests', () => {
     await page.goto('/products')
 
     await expect(
-      page.getByRole('heading', { name: /products/i }).first()
+      page.getByRole('heading', { name: 'Fitness equipment' })
     ).toBeVisible()
   })
 
@@ -35,7 +35,7 @@ test.describe('FITKART production smoke tests', () => {
     await page.goto('/login')
 
     await expect(
-      page.getByRole('heading', { name: /login/i }).first()
+      page.getByRole('heading', { name: 'Sign in to FITKART' })
     ).toBeVisible()
   })
 
@@ -51,3 +51,4 @@ test.describe('FITKART production smoke tests', () => {
     await expect(page).toHaveURL(/\/login/)
   })
 })
+
