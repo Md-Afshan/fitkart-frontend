@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+﻿import { useEffect, useState } from 'react'
 import { API_BASE_URL } from '../../config/api'
 import { ArrowLeft, Check } from 'lucide-react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
@@ -185,6 +185,7 @@ const AdminProductFormPage = () => {
       cancelled = true
     }
   }, [id, isEditMode])
+
   const handleChange = (event) => {
     const { name, value } = event.target
 
@@ -261,6 +262,7 @@ const AdminProductFormPage = () => {
       setDeletingImageId(null)
     }
   }
+
   const handleSubmit = async (event) => {
     event.preventDefault()
 
@@ -602,42 +604,61 @@ const AdminProductFormPage = () => {
                 </div>
               ) : productImages.length > 0 ? (
                 <div className="admin-product-images__grid">
-                  {productImages.map((image) => (
-                    <div
-                      key={image.id}
-                      className="admin-product-image-card"
-                    >
-                      <img
-                        src={`${BACKEND_BASE_URL}${image.imageUrl || image.imagePath || image.url}`}
-                        alt={`${form.name} product`}
-                        className="admin-product-image-card__image"
-                      />
+                  {productImages.map((image) => {
+                    const imageSource =
+                      image.imageUrl ||
+                      image.imagePath ||
+                      image.url
 
-                      <div className="admin-product-image-card__footer">
-                        <span
-                          className={
-                            image.isPrimary
-                              ? 'admin-product-image-card__primary'
-                              : 'admin-product-image-card__secondary'
-                          }
-                        >
-                          {image.isPrimary ? 'Primary image' : 'Product image'}
-                        </span>
+                    const imageUrl = imageSource?.startsWith('http')
+                      ? imageSource
+                      : imageSource
+                        ? `${BACKEND_BASE_URL}${imageSource}`
+                        : ''
 
-                        <button
-                          type="button"
-                          className="admin-product-image-card__delete"
-                          onClick={() => handleImageDelete(image.id)}
-                          aria-label={`Delete image ${image.id}`}
-                          disabled={deletingImageId === image.id}
-                        >
-                          {deletingImageId === image.id
-                            ? 'Deleting...'
-                            : 'Delete'}
-                        </button>
+                    return (
+                      <div
+                        key={image.id}
+                        className="admin-product-image-card"
+                      >
+                        <img
+                          src={imageUrl}
+                          alt={`${form.name} product`}
+                          className="admin-product-image-card__image"
+                        />
+
+                        <div className="admin-product-image-card__footer">
+                          <span
+                            className={
+                              image.isPrimary
+                                ? 'admin-product-image-card__primary'
+                                : 'admin-product-image-card__secondary'
+                            }
+                          >
+                            {image.isPrimary
+                              ? 'Primary image'
+                              : 'Product image'}
+                          </span>
+
+                          <button
+                            type="button"
+                            className="admin-product-image-card__delete"
+                            onClick={() =>
+                              handleImageDelete(image.id)
+                            }
+                            aria-label={`Delete image ${image.id}`}
+                            disabled={
+                              deletingImageId === image.id
+                            }
+                          >
+                            {deletingImageId === image.id
+                              ? 'Deleting...'
+                              : 'Delete'}
+                          </button>
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    )
+                  })}
                 </div>
               ) : (
                 <div className="admin-product-images__empty">
@@ -656,9 +677,13 @@ const AdminProductFormPage = () => {
                     type="file"
                     accept="image/*"
                     onChange={(event) => {
-                      setSelectedFile(event.target.files?.[0] || null)
+                      setSelectedFile(
+                        event.target.files?.[0] || null
+                      )
                     }}
-                    disabled={uploadingImage || loadingProduct}
+                    disabled={
+                      uploadingImage || loadingProduct
+                    }
                   />
                 </div>
 
@@ -666,7 +691,9 @@ const AdminProductFormPage = () => {
                   <input
                     type="checkbox"
                     checked={isPrimary}
-                    onChange={(event) => setIsPrimary(event.target.checked)}
+                    onChange={(event) =>
+                      setIsPrimary(event.target.checked)
+                    }
                     disabled={uploadingImage}
                   />
                   <span>Set as primary image</span>
@@ -678,12 +705,15 @@ const AdminProductFormPage = () => {
                   onClick={handleImageUpload}
                   disabled={!selectedFile || uploadingImage}
                 >
-                  {uploadingImage ? 'Uploading...' : 'Upload image'}
+                  {uploadingImage
+                    ? 'Uploading...'
+                    : 'Upload image'}
                 </button>
               </div>
             </div>
           </div>
         )}
+
         <div className="admin-product-form-actions">
           <Link
             to="/admin/products"
