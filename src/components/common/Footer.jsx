@@ -50,7 +50,7 @@ const Footer = () => {
       <div className="storefront-footer__bottom">
         <div className="storefront-footer__bottom-inner">
           <span>
-            © {new Date().getFullYear()} FITKART. All rights reserved.
+            Â© {new Date().getFullYear()} FITKART. All rights reserved.
           </span>
 
           <span>

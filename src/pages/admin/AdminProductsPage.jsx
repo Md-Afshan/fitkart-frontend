@@ -132,13 +132,13 @@ const AdminProductsPage = () => {
 
   const formatDate = (value) => {
     if (!value) {
-      return '—'
+      return 'â€”'
     }
 
     const date = new Date(value)
 
     if (Number.isNaN(date.getTime())) {
-      return '—'
+      return 'â€”'
     }
 
     return new Intl.DateTimeFormat('en-IN', {
@@ -291,7 +291,7 @@ const AdminProductsPage = () => {
                     <td>{product.brand}</td>
 
                     <td>
-                      {product.categoryName || '—'}
+                      {product.categoryName || 'â€”'}
                     </td>
 
                     <td>

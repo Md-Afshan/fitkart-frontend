@@ -31,13 +31,13 @@ const formatCurrency = (value) => {
 
 const formatDate = (value) => {
   if (!value) {
-    return '—'
+    return 'â€”'
   }
 
   const date = new Date(value)
 
   if (Number.isNaN(date.getTime())) {
-    return '—'
+    return 'â€”'
   }
 
   return dateFormatter.format(date)
@@ -224,7 +224,7 @@ const AdminDashboardPage = () => {
               <div>
                 <p>{stat.label}</p>
                 <strong>
-                  {loading ? '—' : stat.value}
+                  {loading ? 'â€”' : stat.value}
                 </strong>
               </div>
             </article>
@@ -252,21 +252,21 @@ const AdminDashboardPage = () => {
             <div>
               <span>Active products</span>
               <strong>
-                {loading ? '—' : activeProducts}
+                {loading ? 'â€”' : activeProducts}
               </strong>
             </div>
 
             <div>
               <span>Out of stock</span>
               <strong>
-                {loading ? '—' : outOfStockProducts}
+                {loading ? 'â€”' : outOfStockProducts}
               </strong>
             </div>
 
             <div>
               <span>Total units</span>
               <strong>
-                {loading ? '—' : totalInventoryUnits}
+                {loading ? 'â€”' : totalInventoryUnits}
               </strong>
             </div>
           </div>

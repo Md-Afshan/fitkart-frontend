@@ -128,7 +128,7 @@ const OrdersPage = () => {
                   month: 'short',
                   year: 'numeric',
                 })
-              : '—'
+              : 'â€”'
 
             const itemCount = (order.items || []).reduce(
               (total, item) =>

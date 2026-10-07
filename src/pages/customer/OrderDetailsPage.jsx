@@ -18,7 +18,7 @@ const formatCurrency = (amount) => {
 
 const formatDate = (date) => {
   if (!date) {
-    return '—'
+    return 'â€”'
   }
 
   return new Intl.DateTimeFormat('en-IN', {
