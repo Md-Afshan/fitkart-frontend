@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+﻿import { useCallback, useEffect, useState } from 'react'
 import {
   ClipboardList,
   LogOut,
@@ -20,6 +20,10 @@ import './StorefrontHeader.css'
 const StorefrontHeader = () => {
   const [categories, setCategories] = useState([])
   const [cartItemCount, setCartItemCount] = useState(0)
+  const [search, setSearch] = useState(() => {
+    const params = new URLSearchParams(window.location.search)
+    return params.get('search') || ''
+  })
   const { user, logout } = useAuth()
   const navigate = useNavigate()
   const location = useLocation()
@@ -34,12 +38,10 @@ const StorefrontHeader = () => {
 
     try {
       const cart = await getCart()
-
       const count = (cart?.items || []).reduce(
         (total, item) => total + Number(item.quantity || 0),
         0
       )
-
       setCartItemCount(count)
     } catch {
       setCartItemCount(0)
@@ -54,28 +56,32 @@ const StorefrontHeader = () => {
       } catch {
         setCategories([])
       }
-
       await loadCartCount()
     }
 
     loadInitialData()
 
-    const handleCartUpdated = () => {
-      loadCartCount()
-    }
+    const handleCartUpdated = () => loadCartCount()
 
-    window.addEventListener(
-      'fitkart-cart-updated',
-      handleCartUpdated
-    )
+    window.addEventListener('fitkart-cart-updated', handleCartUpdated)
 
     return () => {
-      window.removeEventListener(
-        'fitkart-cart-updated',
-        handleCartUpdated
-      )
+      window.removeEventListener('fitkart-cart-updated', handleCartUpdated)
     }
   }, [loadCartCount])
+
+
+  const handleSearchSubmit = (event) => {
+    event.preventDefault()
+    const query = search.trim()
+
+    if (!query) {
+      navigate('/products')
+      return
+    }
+
+    navigate(`/products?search=${encodeURIComponent(query)}`)
+  }
 
   const searchParams = new URLSearchParams(location.search)
   const activeCategoryId = searchParams.get('categoryId')
@@ -98,17 +104,20 @@ const StorefrontHeader = () => {
           <FitKartLogo />
         </Link>
 
-        <div className="storefront-header__search">
-          <Search
-            size={20}
-            aria-hidden="true"
-          />
+        <form
+          className="storefront-header__search"
+          role="search"
+          onSubmit={handleSearchSubmit}
+        >
+          <Search size={20} aria-hidden="true" />
           <input
             type="search"
             placeholder="Search products"
             aria-label="Search products"
+            value={search}
+            onChange={(event) => setSearch(event.target.value)}
           />
-        </div>
+        </form>
 
         <nav
           className="storefront-header__actions"
@@ -116,38 +125,19 @@ const StorefrontHeader = () => {
         >
           {user?.role === 'CUSTOMER' ? (
             <>
-              <Link
-                to="/profile"
-                className="storefront-header__action"
-              >
-                <UserRound
-                  size={20}
-                  aria-hidden="true"
-                />
+              <Link to="/profile" className="storefront-header__action">
+                <UserRound size={20} aria-hidden="true" />
                 <span>Account</span>
               </Link>
 
-              <Link
-                to="/orders"
-                className="storefront-header__action"
-              >
-                <ClipboardList
-                  size={20}
-                  aria-hidden="true"
-                />
+              <Link to="/orders" className="storefront-header__action">
+                <ClipboardList size={20} aria-hidden="true" />
                 <span>My Orders</span>
               </Link>
 
-              <Link
-                to="/cart"
-                className="storefront-header__action"
-              >
-                <ShoppingBag
-                  size={20}
-                  aria-hidden="true"
-                />
+              <Link to="/cart" className="storefront-header__action">
+                <ShoppingBag size={20} aria-hidden="true" />
                 <span>Cart</span>
-
                 {cartItemCount > 0 && (
                   <span className="storefront-header__cart-count">
                     {cartItemCount}
@@ -163,30 +153,18 @@ const StorefrontHeader = () => {
                   navigate('/')
                 }}
               >
-                <LogOut
-                  size={16}
-                  aria-hidden="true"
-                />
+                <LogOut size={16} aria-hidden="true" />
                 <span>Sign out</span>
               </button>
             </>
           ) : (
             <>
-              <Link
-                to="/login"
-                className="storefront-header__action"
-              >
-                <UserRound
-                  size={20}
-                  aria-hidden="true"
-                />
+              <Link to="/login" className="storefront-header__action">
+                <UserRound size={20} aria-hidden="true" />
                 <span>Login</span>
               </Link>
 
-              <Link
-                to="/register"
-                className="storefront-header__action"
-              >
+              <Link to="/register" className="storefront-header__action">
                 <span>Register</span>
               </Link>
             </>
@@ -208,9 +186,7 @@ const StorefrontHeader = () => {
               key={category.id}
               to={`/products?categoryId=${category.id}`}
               className={
-                isCategoryActive(category.id)
-                  ? 'is-active'
-                  : ''
+                isCategoryActive(category.id) ? 'is-active' : ''
               }
             >
               {category.name}
